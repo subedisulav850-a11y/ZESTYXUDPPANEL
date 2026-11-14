@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Telegram blue circle -->
+    <path
+        android:pathData="M12,0 A12,12 0 1,1 12,24 A12,12 0 1,1 12,0 Z"
+        android:fillColor="#FF2AABEE"/>
+    <!-- Telegram paper plane -->
+    <path
+        android:pathData="M5,12 L19,6 L14,18 L12,14 Z"
+        android:fillColor="#FFFFFFFF"/>
+    <path
+        android:pathData="M12,14 L10.5,17.5 L14,18 L12,14 Z"
+        android:fillColor="#FFD2E5F5"/>
+    <path
+        android:pathData="M12,14 L19,6 L12,14 Z"
+        android:fillColor="#FFECF2FA"/>
+</vector>
