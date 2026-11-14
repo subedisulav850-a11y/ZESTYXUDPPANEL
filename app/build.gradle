@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+
+// ---------------------------------------------------------------------------
+// Release signing. The release block used to sign with signingConfigs.debug
+// (public debug password) — see docs/SESSION_2026_09_16.md open item #1 and
+// docs/SECURITY_MODEL.md. Real release keys are read from a GITIGNORED
+// keystore.properties at the module-parent root; if it is absent we fall back
+// to debug signing with a LOUD warning so `assembleRelease` still works during
+// development but nobody ships a debug-signed build by accident.
+//
+// keystore.properties (never committed):
+//   storeFile=nuvola-release.jks
+//   storePassword=...
+//   keyAlias=nuvola
+//   keyPassword=...
+// Generate the keystore with the keytool command in docs/SERVER_OPS.md / the
+// build notes, then fill this file in.
+def keystorePropsFile = rootProject.file("keystore.properties")
+def hasReleaseKeystore = keystorePropsFile.exists()
+def keystoreProps = new Properties()
+if (hasReleaseKeystore) {
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+}
+
+android {
+    namespace 'com.ff.zesty.proxy'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ff.zesty.proxy"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "2.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        if (hasReleaseKeystore) {
+            release {
+                storeFile file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "AUTH_ENFORCE", "false"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            zipAlignEnabled true
+            if (hasReleaseKeystore) {
+                signingConfig signingConfigs.release
+            } else {
+                signingConfig signingConfigs.debug
+            }
+            buildConfigField "boolean", "AUTH_ENFORCE", "true"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+}
+dependencies {
+    implementation 'dev.rikka.shizuku:api:13.1.5'
+    implementation 'dev.rikka.shizuku:provider:13.1.5'
+    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.3'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.google.crypto.tink:tink-android:1.13.0'
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'preReleaseBuild') {
+        task.doFirst {
+            if (!project.hasProperty('insecureReleaseOk')) {
+                def cfg = file('src/main/java/com/nepdon/wire/auth/AuthConfig.java').text
+                boolean pinEmpty = (cfg =~ /CERT_PIN\s*=\s*""/) as boolean
+                boolean keyEmpty = (cfg =~ /SERVER_ED25519_PUB_HEX\s*=\s*""/) as boolean
+                if (pinEmpty || keyEmpty) {
+                    throw new GradleException("Release blocked: AuthConfig.CERT_PIN and/or SERVER_ED25519_PUB_HEX are empty.")
+                }
+                if (!hasReleaseKeystore) {
+                    throw new GradleException("Release blocked: keystore.properties is missing.")
+                }
+            }
+        }
+    }
+}
