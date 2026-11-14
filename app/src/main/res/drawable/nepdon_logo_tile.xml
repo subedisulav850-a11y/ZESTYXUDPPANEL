@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Nepdon Wire — small square logo tile (used in home page header, ~46dp).
+  Circle shape via clip-path, N monogram inside.
+  Use as android:src on an ImageView.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="46dp"
+    android:height="46dp"
+    android:viewportWidth="46"
+    android:viewportHeight="46">
+
+    <!-- Background circle -->
+    <path android:pathData="M23,1 A22,22 0 1 1 22.99,1 Z">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
+            <gradient
+                android:startX="1" android:startY="45"
+                android:endX="45" android:endY="1"
+                android:type="linear">
+                <item android:offset="0" android:color="#FF5B0A0A"/>
+                <item android:offset="0.5" android:color="#FF991B1B"/>
+                <item android:offset="1" android:color="#FFEF4444"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Inner ring -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#44FFFFFF"
+        android:strokeWidth="0.8"
+        android:pathData="M23,3 A20,20 0 1 1 22.99,3 Z" />
+
+    <!-- N — left bar -->
+    <path android:fillColor="#FFFFFFFF"
+          android:pathData="M10,10 L10,36 L15,36 L15,10 Z" />
+
+    <!-- N — right bar -->
+    <path android:fillColor="#FFFFFFFF"
+          android:pathData="M31,10 L31,36 L36,36 L36,10 Z" />
+
+    <!-- N — diagonal -->
+    <path android:fillColor="#FFFFFFFF"
+          android:pathData="M10,10 L15,10 L36,36 L31,36 Z" />
+
+    <!-- Corner dots -->
+    <path android:fillColor="#FFFCA5A5"
+          android:pathData="M9,7.5 A2,2 0 1 1 8.99,7.5 Z" />
+    <path android:fillColor="#FFFCA5A5"
+          android:pathData="M37,7.5 A2,2 0 1 1 36.99,7.5 Z" />
+    <path android:fillColor="#FFFCA5A5"
+          android:pathData="M9,38.5 A2,2 0 1 1 8.99,38.5 Z" />
+    <path android:fillColor="#FFFCA5A5"
+          android:pathData="M37,38.5 A2,2 0 1 1 36.99,38.5 Z" />
+
+</vector>
