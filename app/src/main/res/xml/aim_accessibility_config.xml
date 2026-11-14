@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Accessibility service config for the aim touch injector.
+  - accessibilityEventTypes="typeNone": we produce no event callbacks, so
+    we subscribe to nothing. This avoids unnecessary IPC on every UI event.
+  - canPerformGestures="true": required for dispatchGesture().
+  - No accessibilityFeedbackType / notificationTimeout needed since we
+    never surface feedback to the user.
+-->
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeNone"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:notificationTimeout="0"
+    android:canPerformGestures="true"
+    android:description="@string/aim_accessibility_description" />
