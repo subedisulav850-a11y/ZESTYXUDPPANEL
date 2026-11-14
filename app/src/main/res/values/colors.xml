@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Nepdon Wire — Black & White theme.
+    Accent = white. Surfaces = pure blacks/grays.
+    All WCAG ratios re-verified against #000000 canvas.
+-->
+<resources>
+
+    <!-- ==== surfaces ==== -->
+    <color name="fl_bg_base">#FF000000</color>
+    <color name="fl_bg_surface">#FF0D0D0D</color>
+    <color name="fl_bg_surface_elevated">#FF1A1A1A</color>
+    <color name="fl_bg_surface_high">#FF262626</color>
+    <color name="fl_bg_scrim">#F2000000</color>
+    <color name="fl_bg_scrim_hud">#E6000000</color>
+
+    <!-- ==== outlines ==== -->
+    <color name="fl_outline">#FF2E2E2E</color>
+    <color name="fl_outline_strong">#FF5C5C5C</color>
+    <color name="fl_outline_focus">#FFFFFFFF</color>
+
+    <!-- ==== accent (WHITE) ==== -->
+    <color name="fl_accent">#FFFFFFFF</color>
+    <color name="fl_accent_bright">#FFFFFFFF</color>
+    <color name="fl_accent_dim">#FFB0B0B0</color>
+    <color name="fl_accent_muted">#FF383838</color>
+    <color name="fl_on_accent">#FF000000</color>
+
+    <!-- ==== text ==== -->
+    <color name="fl_text_primary">#FFFFFFFF</color>
+    <color name="fl_text_secondary">#FFE0E0E0</color>
+    <color name="fl_text_tertiary">#FFB0B0B0</color>
+    <color name="fl_text_disabled">#FF5C5C5C</color>
+
+    <!-- ==== status ==== -->
+    <color name="fl_success">#FFFFFFFF</color>
+    <color name="fl_success_container">#FF1A1A1A</color>
+    <color name="fl_warning">#FFFFB020</color>
+    <color name="fl_warning_container">#FF4A3208</color>
+    <color name="fl_error">#FFFFFFFF</color>
+    <color name="fl_error_container">#FF1A1A1A</color>
+    <color name="fl_on_error_container">#FFFFFFFF</color>
+
+    <!-- ==== ESP marks ==== -->
+    <color name="fl_esp_enemy">#FFFFFFFF</color>
+    <color name="fl_esp_team">#FFB0B0B0</color>
+    <color name="fl_esp_unknown">#FFFFB020</color>
+    <color name="fl_esp_halo">#CC000000</color>
+
+    <!-- ==== health bar ==== -->
+    <color name="fl_hp_high">#FFFFFFFF</color>
+    <color name="fl_hp_mid">#FFFFD43B</color>
+    <color name="fl_hp_low">#FFFF5252</color>
+    <color name="fl_hp_track">#B3000000</color>
+
+    <!-- ==== floating button ==== -->
+    <color name="fl_btn_off_fill">#FF1A1A1A</color>
+    <color name="fl_btn_off_stroke">#FF5C5C5C</color>
+    <color name="fl_btn_on_fill">#FF383838</color>
+    <color name="fl_btn_on_stroke">#FFFFFFFF</color>
+
+    <!-- ==== monospace telemetry ==== -->
+    <color name="fl_mono_label">#FFE0E0E0</color>
+    <color name="fl_mono_value">#FFB0B0B0</color>
+    <color name="fl_mono_ok">#FFFFFFFF</color>
+    <color name="fl_mono_warn">#FFFFB020</color>
+    <color name="fl_mono_err">#FFFF5252</color>
+
+</resources>
