@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Safe-margin circular version for home, login, and picker surfaces. -->
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/nepdon_logo_circle_safe"
+    android:gravity="fill"
+    android:antialias="true" />
