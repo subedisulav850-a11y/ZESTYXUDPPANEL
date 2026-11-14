@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand ramp — WHITE accent, BLACK ground -->
+    <color name="nv_blue_deep">#FF1A1A1A</color>
+    <color name="nv_blue">#FF383838</color>
+    <color name="nv_teal_deep">#FF5C5C5C</color>
+    <color name="nv_teal">#FFFFFFFF</color>
+
+    <!-- Surfaces -->
+    <color name="nv_ground">#FF000000</color>
+    <color name="nv_surface">#FF0D0D0D</color>
+    <color name="nv_raised">#FF1A1A1A</color>
+
+    <!-- Borders -->
+    <color name="nv_line">#FF2E2E2E</color>
+    <color name="nv_line_strong">#FF5C5C5C</color>
+
+    <!-- Text -->
+    <color name="nv_text">#FFFFFFFF</color>
+    <color name="nv_text_2">#FFE0E0E0</color>
+    <color name="nv_text_3">#FFB0B0B0</color>
+    <color name="nv_text_4">#FF5C5C5C</color>
+
+    <!-- Status -->
+    <color name="nv_ready">#FFFFFFFF</color>
+    <color name="nv_learning">#FFFFB020</color>
+    <color name="nv_off">#FF5C5C5C</color>
+    <color name="nv_alarm">#FFFF5252</color>
+
+    <!-- Scrims -->
+    <color name="nv_scrim">#E6000000</color>
+    <color name="nv_scrim_hard">#F5000000</color>
+
+    <!-- Translucent accents -->
+    <color name="nv_teal_12">#1FFFFFFF</color>
+    <color name="nv_teal_28">#47FFFFFF</color>
+    <color name="nv_alarm_12">#1FFF5252</color>
+    <color name="nv_learning_12">#1FFBBF24</color>
+
+    <!-- On-brand text -->
+    <color name="nv_on_brand">#FF000000</color>
+    <color name="nv_on_brand_2">#FF1A1A1A</color>
+</resources>
